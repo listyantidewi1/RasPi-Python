@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BOARD)
 
-tunda = 0.1
+tunda = 0.5
 value = 0
 ldr = 3
 led = 11
@@ -25,10 +25,10 @@ try:
         print("Nilai ldr: ")
         value = rc_time(ldr)
         print(value)
-        if(value >= 350000):
+        if(value >=3500 ):
             print("Lights are ON")
             GPIO.output(led, True)
-        if(value<350000):
+        if(value<100):
             print("Lights are OFF")
             GPIO.output(led, False)
 except KeyboardInterrupt:
